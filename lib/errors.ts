@@ -6,3 +6,9 @@ export class AppError extends Error {
     this.statusCode = statusCode;
   }
 }
+
+export class ValidationError extends Error {
+  constructor(public details: unknown) {
+    super("Validation failed");
+  }
+}
