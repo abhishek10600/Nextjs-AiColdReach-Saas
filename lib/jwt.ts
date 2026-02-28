@@ -1,20 +1,34 @@
 import { JwtPayload } from "@/types";
 import jwt, { Secret, SignOptions } from "jsonwebtoken";
 
-export const signAccessToken = (userId: string) => {
+export const signAccessToken = (user: JwtPayload) => {
   const accessTokenSecret = process.env.JWT_ACCESS_SECRET as Secret;
   const options: SignOptions = {
     expiresIn: process.env.ACCESS_TOKEN_EXPIRES as SignOptions["expiresIn"],
   };
-  return jwt.sign({ userId }, accessTokenSecret, options);
+  return jwt.sign(
+    {
+      id: user.id,
+      email: user.email,
+    },
+    accessTokenSecret,
+    options,
+  );
 };
 
-export const signRefreshToken = (userId: string) => {
+export const signRefreshToken = (user: JwtPayload) => {
   const refreshTokenSecret = process.env.JWT_REFRESH_SECRET as Secret;
   const options: SignOptions = {
     expiresIn: process.env.REFRESH_TOKEN_EXPIRES as SignOptions["expiresIn"],
   };
-  return jwt.sign({ userId }, refreshTokenSecret, options);
+  return jwt.sign(
+    {
+      id: user.id,
+      email: user.email,
+    },
+    refreshTokenSecret,
+    options,
+  );
 };
 
 export const verifyAccessToken = (token: string) => {
