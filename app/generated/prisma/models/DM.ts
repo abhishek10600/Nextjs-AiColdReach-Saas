@@ -35,6 +35,7 @@ export type DMMinAggregateOutputType = {
   generatedDM: string | null
   userId: string | null
   createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type DMMaxAggregateOutputType = {
@@ -48,6 +49,7 @@ export type DMMaxAggregateOutputType = {
   generatedDM: string | null
   userId: string | null
   createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type DMCountAggregateOutputType = {
@@ -61,6 +63,7 @@ export type DMCountAggregateOutputType = {
   generatedDM: number
   userId: number
   createdAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -76,6 +79,7 @@ export type DMMinAggregateInputType = {
   generatedDM?: true
   userId?: true
   createdAt?: true
+  updatedAt?: true
 }
 
 export type DMMaxAggregateInputType = {
@@ -89,6 +93,7 @@ export type DMMaxAggregateInputType = {
   generatedDM?: true
   userId?: true
   createdAt?: true
+  updatedAt?: true
 }
 
 export type DMCountAggregateInputType = {
@@ -102,6 +107,7 @@ export type DMCountAggregateInputType = {
   generatedDM?: true
   userId?: true
   createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -188,6 +194,7 @@ export type DMGroupByOutputType = {
   generatedDM: string
   userId: string
   createdAt: Date
+  updatedAt: Date
   _count: DMCountAggregateOutputType | null
   _min: DMMinAggregateOutputType | null
   _max: DMMaxAggregateOutputType | null
@@ -222,6 +229,7 @@ export type DMWhereInput = {
   generatedDM?: Prisma.StringFilter<"DM"> | string
   userId?: Prisma.StringFilter<"DM"> | string
   createdAt?: Prisma.DateTimeFilter<"DM"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"DM"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
@@ -236,6 +244,7 @@ export type DMOrderByWithRelationInput = {
   generatedDM?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
 }
 
@@ -253,6 +262,7 @@ export type DMWhereUniqueInput = Prisma.AtLeast<{
   generatedDM?: Prisma.StringFilter<"DM"> | string
   userId?: Prisma.StringFilter<"DM"> | string
   createdAt?: Prisma.DateTimeFilter<"DM"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"DM"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id">
 
@@ -267,6 +277,7 @@ export type DMOrderByWithAggregationInput = {
   generatedDM?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.DMCountOrderByAggregateInput
   _max?: Prisma.DMMaxOrderByAggregateInput
   _min?: Prisma.DMMinOrderByAggregateInput
@@ -286,6 +297,7 @@ export type DMScalarWhereWithAggregatesInput = {
   generatedDM?: Prisma.StringWithAggregatesFilter<"DM"> | string
   userId?: Prisma.StringWithAggregatesFilter<"DM"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"DM"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"DM"> | Date | string
 }
 
 export type DMCreateInput = {
@@ -298,6 +310,7 @@ export type DMCreateInput = {
   examples?: string | null
   generatedDM: string
   createdAt?: Date | string
+  updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutDmsInput
 }
 
@@ -312,6 +325,7 @@ export type DMUncheckedCreateInput = {
   generatedDM: string
   userId: string
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type DMUpdateInput = {
@@ -324,6 +338,7 @@ export type DMUpdateInput = {
   examples?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generatedDM?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutDmsNestedInput
 }
 
@@ -338,6 +353,7 @@ export type DMUncheckedUpdateInput = {
   generatedDM?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type DMCreateManyInput = {
@@ -351,6 +367,7 @@ export type DMCreateManyInput = {
   generatedDM: string
   userId: string
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type DMUpdateManyMutationInput = {
@@ -363,6 +380,7 @@ export type DMUpdateManyMutationInput = {
   examples?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generatedDM?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type DMUncheckedUpdateManyInput = {
@@ -376,6 +394,7 @@ export type DMUncheckedUpdateManyInput = {
   generatedDM?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type DMListRelationFilter = {
@@ -399,6 +418,7 @@ export type DMCountOrderByAggregateInput = {
   generatedDM?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type DMMaxOrderByAggregateInput = {
@@ -412,6 +432,7 @@ export type DMMaxOrderByAggregateInput = {
   generatedDM?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type DMMinOrderByAggregateInput = {
@@ -425,6 +446,7 @@ export type DMMinOrderByAggregateInput = {
   generatedDM?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type DMCreateNestedManyWithoutUserInput = {
@@ -487,6 +509,7 @@ export type DMCreateWithoutUserInput = {
   examples?: string | null
   generatedDM: string
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type DMUncheckedCreateWithoutUserInput = {
@@ -499,6 +522,7 @@ export type DMUncheckedCreateWithoutUserInput = {
   examples?: string | null
   generatedDM: string
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type DMCreateOrConnectWithoutUserInput = {
@@ -541,6 +565,7 @@ export type DMScalarWhereInput = {
   generatedDM?: Prisma.StringFilter<"DM"> | string
   userId?: Prisma.StringFilter<"DM"> | string
   createdAt?: Prisma.DateTimeFilter<"DM"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"DM"> | Date | string
 }
 
 export type DMCreateManyUserInput = {
@@ -553,6 +578,7 @@ export type DMCreateManyUserInput = {
   examples?: string | null
   generatedDM: string
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type DMUpdateWithoutUserInput = {
@@ -565,6 +591,7 @@ export type DMUpdateWithoutUserInput = {
   examples?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generatedDM?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type DMUncheckedUpdateWithoutUserInput = {
@@ -577,6 +604,7 @@ export type DMUncheckedUpdateWithoutUserInput = {
   examples?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generatedDM?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type DMUncheckedUpdateManyWithoutUserInput = {
@@ -589,6 +617,7 @@ export type DMUncheckedUpdateManyWithoutUserInput = {
   examples?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   generatedDM?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -604,6 +633,7 @@ export type DMSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = run
   generatedDM?: boolean
   userId?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["dM"]>
 
@@ -618,6 +648,7 @@ export type DMSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions
   generatedDM?: boolean
   userId?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["dM"]>
 
@@ -632,6 +663,7 @@ export type DMSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions
   generatedDM?: boolean
   userId?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["dM"]>
 
@@ -646,9 +678,10 @@ export type DMSelectScalar = {
   generatedDM?: boolean
   userId?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type DMOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "platform" | "niche" | "clientDetail" | "tone" | "service" | "examples" | "generatedDM" | "userId" | "createdAt", ExtArgs["result"]["dM"]>
+export type DMOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "platform" | "niche" | "clientDetail" | "tone" | "service" | "examples" | "generatedDM" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["dM"]>
 export type DMInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -675,6 +708,7 @@ export type $DMPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
     generatedDM: string
     userId: string
     createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["dM"]>
   composites: {}
 }
@@ -1109,6 +1143,7 @@ export interface DMFieldRefs {
   readonly generatedDM: Prisma.FieldRef<"DM", 'String'>
   readonly userId: Prisma.FieldRef<"DM", 'String'>
   readonly createdAt: Prisma.FieldRef<"DM", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"DM", 'DateTime'>
 }
     
 

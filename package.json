@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "db:generate": "npx prisma generate",
+    "db:migrate": "npx prisma migrate dev --name init",
     "lint": "eslint"
   },
   "dependencies": {

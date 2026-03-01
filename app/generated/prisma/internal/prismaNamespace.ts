@@ -612,7 +612,8 @@ export const DMScalarFieldEnum = {
   examples: 'examples',
   generatedDM: 'generatedDM',
   userId: 'userId',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type DMScalarFieldEnum = (typeof DMScalarFieldEnum)[keyof typeof DMScalarFieldEnum]
