@@ -1,7 +1,9 @@
 import { registerSchema } from "@/features/auth/schema";
 import { failure, success } from "@/lib/api-response";
+import { setAuthCookies } from "@/lib/cookies";
 import { ValidationError } from "@/lib/errors";
 import { hashPassword } from "@/lib/hash";
+import { signAccessToken, signRefreshToken } from "@/lib/jwt";
 import prisma from "@/lib/prisma";
 import { validateRequest } from "@/lib/validate";
 import { NextResponse } from "next/server";
@@ -30,6 +32,11 @@ export async function POST(req: Request) {
         password: hashed,
       },
     });
+
+    const accessToken = signAccessToken(user);
+    const refreshToken = signRefreshToken(user);
+
+    await setAuthCookies(accessToken, refreshToken);
 
     return NextResponse.json(
       success({
