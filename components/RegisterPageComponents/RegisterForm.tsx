@@ -13,9 +13,12 @@ import { toast } from "sonner";
 import { Spinner } from "../ui/spinner";
 import { Label } from "../ui/label";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { setUser } from "@/store/slices/authSlice";
 
 export default function RegisterForm() {
   const router = useRouter();
+  const dispatch = useDispatch();
   const [serverError, setServerError] = useState<string | null>(null);
 
   const {
@@ -30,7 +33,8 @@ export default function RegisterForm() {
     setServerError(null);
 
     try {
-      await registerUser(data);
+      const response = await registerUser(data);
+      dispatch(setUser(response.data));
       toast.success("Account Created Successfully");
       router.replace("/dashboard");
     } catch (error: any) {
@@ -62,7 +66,7 @@ export default function RegisterForm() {
                 {...register("email")}
               />
               {errors.email && (
-                <p className="text-sm text-red-500">{errors.email.message}</p>
+                <p className="text-xs text-red-500">{errors.email.message}</p>
               )}
             </div>
 
@@ -74,7 +78,7 @@ export default function RegisterForm() {
                 {...register("password")}
               />
               {errors.password && (
-                <p className="text-sm text-red-500">
+                <p className="text-xs text-red-500">
                   {errors.password.message}
                 </p>
               )}

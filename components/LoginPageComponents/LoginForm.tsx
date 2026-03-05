@@ -13,9 +13,12 @@ import { toast } from "sonner";
 import { Spinner } from "../ui/spinner";
 import Link from "next/link";
 import { Label } from "../ui/label";
+import { useDispatch } from "react-redux";
+import { setUser } from "@/store/slices/authSlice";
 
 export default function LoginForm() {
   const router = useRouter();
+  const dispatch = useDispatch();
   const [serverError, setServerError] = useState<string | null>(null);
 
   const {
@@ -30,7 +33,8 @@ export default function LoginForm() {
     setServerError(null);
 
     try {
-      await loginUser(data);
+      const response = await loginUser(data);
+      dispatch(setUser(response.data));
       toast.success("Logged In Successfully");
       router.replace("/dashboard");
     } catch (error: any) {
@@ -60,7 +64,7 @@ export default function LoginForm() {
                 {...register("email")}
               />
               {errors.email && (
-                <p className="text-sm text-red-500">{errors.email.message}</p>
+                <p className="text-xs text-red-500">{errors.email.message}</p>
               )}
             </div>
 
@@ -72,7 +76,7 @@ export default function LoginForm() {
                 {...register("password")}
               />
               {errors.password && (
-                <p className="text-sm text-red-500">
+                <p className="text-xs text-red-500">
                   {errors.password.message}
                 </p>
               )}
